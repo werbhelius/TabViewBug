@@ -53,3 +53,8 @@ struct DragViewBar: View {
             .cornerRadius(100)
     }
 }
+
+class PageViewModel: ObservableObject {
+    @Published var selectTabIndex = 0
+}
+
