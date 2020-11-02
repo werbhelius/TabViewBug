@@ -8,14 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var showPageView = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+        
+        Button(action: {
+            self.showPageView.toggle()
+        }, label: {
+            Text("show page view")
+                .foregroundColor(Color.white)
+                .background(Color.blue)
+                .frame(width: 100, height: 100)
+                .contentShape(Rectangle())
+        })
+        .sheet(isPresented: $showPageView, content: {
+            Pageview()
+        })
+        
+        
     }
 }
